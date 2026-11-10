@@ -12,6 +12,6 @@
  * Both must be https:// (`npm run check` enforces it).
  */
 window.TILT_LINKS = {
-  site: '',
+  site: 'https://hufamily.github.io/TiltUp/',
   store: ''
 };
