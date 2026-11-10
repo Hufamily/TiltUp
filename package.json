@@ -1,0 +1,21 @@
+{
+  "name": "tilt-up",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Tilt Up: a tiny tilt-the-bar arcade game for Chrome. No dependencies, no build step for the game itself.",
+  "type": "module",
+  "engines": { "node": ">=22.2" },
+  "scripts": {
+    "check": "node tools/store-check.mjs && node tools/sim-check.mjs 500",
+    "test": "node tools/store-check.mjs && node tools/sim-check.mjs 500 && node tools/build.mjs --skip-checks && node tools/smoke.mjs",
+    "build": "node tools/build.mjs",
+    "smoke": "node tools/smoke.mjs",
+    "assets": "node tools/store-assets.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "social": "node tools/social.mjs",
+    "release": "node tools/release.mjs",
+    "publish:store": "node tools/publish.mjs",
+    "status": "node tools/publish.mjs --status",
+    "serve": "node tools/serve.mjs"
+  }
+}

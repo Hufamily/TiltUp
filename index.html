@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tilt Up</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="board">
+      <div class="hud">
+        <span id="hudSeed">-</span>
+        <span id="hudTime">0.0s</span>
+        <span id="hudDrops">0 drops</span>
+      </div>
+      <div class="screen">
+        <canvas id="game" width="170" height="240" aria-label="Game board"></canvas>
+        <div id="overlay" class="overlay"></div>
+      </div>
+      <div class="pads">
+        <button id="padJ" class="pad" type="button"><b>J</b><span>left up</span></button>
+        <button id="padK" class="pad" type="button"><b>K</b><span>right up</span></button>
+      </div>
+    </section>
+
+    <aside class="side">
+      <h1>TILT<span>UP</span></h1>
+
+      <div class="group">
+        <button id="btnDaily" class="btn wide" type="button">DAILY <kbd>D</kbd></button>
+        <div class="row">
+          <button id="btnNew" class="btn grow" type="button">NEW <kbd>N</kbd></button>
+          <select id="diff" class="btn" aria-label="Difficulty">
+            <option value="E">EASY</option>
+            <option value="N" selected>NORM</option>
+            <option value="H">HARD</option>
+          </select>
+        </div>
+        <button id="btnReplay" class="btn wide" type="button">REPLAY <kbd>R</kbd></button>
+      </div>
+
+      <div class="group">
+        <label for="seedInput">SEED</label>
+        <div class="row">
+          <code id="seedText" class="grow">-</code>
+          <button id="btnShare" class="btn small" type="button" title="Copy a challenge for friends">SHARE</button>
+          <button id="btnSave" class="btn small" type="button" title="Save this seed">SAVE</button>
+        </div>
+        <div class="row">
+          <input id="seedInput" class="grow" type="text" spellcheck="false" maxlength="400" placeholder="paste seed, challenge or link">
+          <button id="btnLoad" class="btn small" type="button">GO</button>
+        </div>
+        <p id="toast" class="toast" aria-live="polite"></p>
+      </div>
+
+      <div class="group fill">
+        <span class="label">SAVED</span>
+        <ul id="savedList" class="saved"></ul>
+      </div>
+
+      <div class="keys">
+        <span><kbd>J</kbd><kbd>K</kbd> raise</span>
+        <span><kbd>⇧</kbd>+<kbd>J</kbd>/<kbd>K</kbd> lower</span>
+        <span><kbd>P</kbd> pause</span>
+        <span><kbd>Esc</kbd> close</span>
+      </div>
+      <button id="btnTab" class="link" type="button">open in tab ↗</button>
+      <!-- Web build only (hidden in the extension): install button + privacy link. -->
+      <div class="webonly">
+        <a id="getExt" class="btn wide cta" target="_blank" rel="noopener" hidden>GET IT FOR CHROME <span>↗</span></a>
+        <a class="link" href="privacy.html">privacy: no data collected</a>
+      </div>
+    </aside>
+  </main>
+  <script src="links.js"></script>
+  <script src="level.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

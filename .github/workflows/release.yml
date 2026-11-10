@@ -1,0 +1,42 @@
+# Runs when a version tag is pushed (npm run release does the tagging).
+# Tests, uploads the zip to the Chrome Web Store, submits it for review, and makes a GitHub release.
+# The store step is skipped until the CWS_* secrets exist (see docs/RELEASING.md).
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      CWS_PUBLISHER_ID: ${{ secrets.CWS_PUBLISHER_ID }}
+      CWS_ITEM_ID: ${{ secrets.CWS_ITEM_ID }}
+      CWS_SERVICE_ACCOUNT_JSON: ${{ secrets.CWS_SERVICE_ACCOUNT_JSON }}
+      CWS_CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+      CWS_CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+      CWS_REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Tag matches manifest version
+        run: |
+          v=$(node -p "require('./manifest.json').version")
+          [ "v$v" = "$GITHUB_REF_NAME" ] || { echo "Tag $GITHUB_REF_NAME does not match manifest version $v"; exit 1; }
+          echo "VERSION=$v" >> "$GITHUB_ENV"
+      - run: npm test
+      - name: Upload to Chrome Web Store and submit for review
+        if: env.CWS_ITEM_ID != ''
+        run: node tools/publish.mjs
+      - name: Store credentials not set
+        if: env.CWS_ITEM_ID == ''
+        run: echo "::warning::CWS_* secrets are not set, so nothing was uploaded. Upload dist/tilt-up-${VERSION}.zip by hand or add the secrets (docs/RELEASING.md)."
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node tools/changelog.mjs "$VERSION" > notes.md
+          gh release create "$GITHUB_REF_NAME" "dist/tilt-up-$VERSION.zip" --title "Tilt Up $VERSION" --notes-file notes.md

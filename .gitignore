@@ -1,0 +1,8 @@
+dist/
+marketing/out/
+node_modules/
+.env
+*.pem
+service-account*.json
+.DS_Store
+Thumbs.db
