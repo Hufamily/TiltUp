@@ -44,6 +44,19 @@ const stats = {};
 const seeds = [L.dailySeed(), 'HELLO', 'E-AAAAAA', 'H-ZZZZZZ'];
 for (const d of ['E', 'N', 'H']) for (let i = 0; i < N; i++) seeds.push(L.randomSeed(d));
 
+// Run mode: a run code must always derive the same level seeds (shared runs), in the E/N/H schedule.
+// The golden list pins the derivation: if it changes, every shared R- code breaks (version the format instead).
+const GOLDEN = 'E-DF89EK E-FMTFPR E-RQ4YSU N-LS9MH6 N-KBV5BC N-43GCF5 H-XJJRGB H-UA9H2K';
+const runOf = (code, n) => Array.from({ length: n }, (_, i) => L.runSeed(code, i + 1));
+if (runOf('R-AAAAAA', 8).join(' ') !== GOLDEN) { console.log('RUN DERIVATION CHANGED', runOf('R-AAAAAA', 8).join(' ')); fail++; }
+for (let r = 0; r < 50; r++) {
+  const code = L.randomRunCode();
+  const a = runOf(code, 12), b = runOf(code, 12);
+  const shaped = a.every((s, i) => s === b[i] && /^[ENH]-[A-HJ-NP-Z2-9]{6}$/.test(s) && s[0] === L.runDiff(i + 1));
+  if (!L.isRunCode(code) || !shaped) { console.log('BAD RUN', code, a.join(' ')); fail++; }
+  seeds.push(...a); // derived levels must be solvable too
+}
+
 for (const s of seeds) {
   const lv = L.generateLevel(s);
   const st = (stats[lv.diff] ||= { n: 0, holes: 0 });
