@@ -13,5 +13,5 @@
  */
 window.TILT_LINKS = {
   site: 'https://hufamily.github.io/TiltUp/',
-  store: ''
+  store: 'https://chromewebstore.google.com/detail/gieekbbcppndlhdlhfcnoohhbidaonkb'
 };
