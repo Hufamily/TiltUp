@@ -3,6 +3,7 @@
 **Name:** Tilt Up - Tiny Arcade Climb
 **Summary:** Tilt the bar, roll the ball past the holes, sink the lit pocket. Daily challenge and shareable level seeds.
 **Category:** Games
+**Homepage URL:** https://hufamily.github.io/TiltUp/
 
 **Description:**
 
@@ -29,6 +30,6 @@ Privacy: Tilt Up collects no data. Your progress is stored only on your device.
 - `storage`: saves best times, saved levels, difficulty and the last level on the device.
 - Remote code: No.
 - Data usage: tick none, and certify all three statements.
-- Privacy policy: `<site>privacy.html`
+- Privacy policy: `https://hufamily.github.io/TiltUp/privacy.html`
 
 **Distribution:** Public, all regions, not mature content.
