@@ -28,7 +28,7 @@ Without the secrets, the release workflow still builds and makes the GitHub rele
 `npm run check` covers the automated part. By hand, in the dashboard:
 
 - Single purpose: "A small arcade game."
-- `storage` permission: saves best times, saved levels and the last level on the device.
+- `storage` permission: saves best times, the best run, run progress, saved levels and the last level on the device.
 - Privacy: no user data collected, certify Limited Use, no remote code. Policy URL: `<site>privacy.html`.
 - Images: `npm run assets` renders the screenshots and promo tile into `store/`.
 - Every upload needs a new version; `npm run release` handles it.

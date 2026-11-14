@@ -27,7 +27,7 @@ Privacy: Tilt Up collects no data. Your progress is stored only on your device.
 
 **Privacy tab:**
 - Single purpose: A small arcade game played in the popup or in its own tab.
-- `storage`: saves best times, saved levels, difficulty and the last level on the device.
+- `storage`: saves best times, the best run, run progress, saved levels, difficulty and the last level on the device.
 - Remote code: No.
 - Data usage: tick none, and certify all three statements.
 - Privacy policy: `https://hufamily.github.io/TiltUp/privacy.html`
