@@ -8,16 +8,16 @@
 **Description:**
 
 ```
-Tilt Up is a small, quiet arcade game that opens right from your toolbar.
+Tilt Up is a classic arcade game that opens right from your toolbar.
 
-Hold J to raise the left end of the bar and K to raise the right. Roll the ball up the board,
-steer it around the holes, and drop it into the lit pocket at the top. Don't push the bar
-into the ceiling. A level takes about a minute.
+Hold J to raise the left end of the bar and K to raise the right. Roll the ball up the board, steer it around the holes, and drop it into the lit pocket at the top. 
 
 • Endless levels in three difficulties
+• Run mode: clear levels until you top out!
+• Gold, silver and bronze medals for fast clears
 • A new Daily level every day
-• Share a level's code and see who clears it faster
-• Saves your best time for each level
+• Share a level or run code and compete with others
+• Saves your best times and picks up where you left off
 • Works offline. No account, no sound
 
 Privacy: Tilt Up collects no data. Your progress is stored only on your device.
