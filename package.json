@@ -1,6 +1,6 @@
 {
   "name": "tilt-up",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "description": "Tilt Up: a tiny tilt-the-bar arcade game for Chrome. No dependencies, no build step for the game itself.",
   "type": "module",

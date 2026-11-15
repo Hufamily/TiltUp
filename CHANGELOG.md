@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.3.0 - 2026-11-15
+
 - Run mode: clear levels back to back, Easy to Hard, until you top out. Share your run code.
 - Slipperier, more realistic ball: it keeps rolling until you tilt against it.
 - Gold, silver and bronze medals for fast clears, with medal times for each level.
